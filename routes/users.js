@@ -1,9 +1,11 @@
 var express = require('express');
+var config = require('../devflow-service/config');
+var client = require('../devflow-service/client');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/api/users', function(req, res, next) {
+	client.get(req, res, config.USERS_ROUTE);
 });
 
 module.exports = router;
